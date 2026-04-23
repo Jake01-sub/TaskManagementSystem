@@ -227,9 +227,9 @@ namespace TaskManagementSystem
 
             dgvTasks.Columns["TaskId"].Width = 60;
             dgvTasks.Columns["Level"].Width = 70;
-            dgvTasks.Columns["ParentId"].Width = 70;
+            dgvTasks.Columns["ParentId"].Width = 80;
             dgvTasks.Columns["Title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvTasks.Columns["Priority"].Width = 80;
+            dgvTasks.Columns["Priority"].Width = 110;
             dgvTasks.Columns["SubtaskCount"].Width = 80;
         }
 
