@@ -205,6 +205,7 @@
             txtSearchId.Name = "txtSearchId";
             txtSearchId.Size = new Size(327, 29);
             txtSearchId.TabIndex = 0;
+            txtSearchId.TextAlign = HorizontalAlignment.Center;
             // 
             // groupBox3
             // 
