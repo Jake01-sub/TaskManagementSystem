@@ -39,5 +39,18 @@ namespace TaskManagementSystem
         }
 
         public abstract string GetTaskType();
+
+        public string SetPriority(int level)
+        {
+            if (level >= 1 && level <= 5)
+            {
+                priority = level;
+                return $"Priority set to {level}";
+            }
+            else
+            {
+                return "Error: Invalid Priority";
+            }
+        }
     }
 }

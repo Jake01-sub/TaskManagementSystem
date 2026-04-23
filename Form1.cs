@@ -69,18 +69,60 @@ namespace TaskManagementSystem
 
         private void btnProcessNext_Click(object sender, EventArgs e)
         {
-            if (nextTasksQueue.Count == 0)
+            int? selectedId = GetSelectedTaskId();
+            if (selectedId == null)
             {
-                MessageBox.Show("No tasks in the queue.", "Queue Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select a task in the grid first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            AbstractTask next = nextTasksQueue.Dequeue();
+            AbstractTask task = LinearSearch(allTasks, selectedId.Value);
+            if (task == null)
+            {
+                MessageBox.Show($"Task with ID {selectedId} no longer exists.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            allTasks.Remove(next);
+            if (task.SubTasks.Count > 0)
+            {
+                MessageBox.Show($"Cannot delete Task {selectedId} because it still has {task.SubTasks.Count} Direct Subtask(s). Remove or reassign them first.", "Deletion Blocked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            allTasks.Remove(task);
+
+            if (task.ParentId != null)
+            {
+                AbstractTask parent = LinearSearch(allTasks, task.ParentId.Value);
+                if (parent != null)
+                {
+                    parent.SubTasks.Remove(task);
+                }
+            }
+
+            Queue<AbstractTask> newQueue = new Queue<AbstractTask>();
+            while (nextTasksQueue.Count > 0)
+            {
+                AbstractTask qTask = nextTasksQueue.Dequeue();
+                if (qTask != task)
+                    newQueue.Enqueue(qTask);
+            }
+            nextTasksQueue = newQueue;
 
             RefreshTaskGrid();
-            MessageBox.Show($"Processed and removed task:\nID: {next.Id}\nTitle: {next.Title}\nPriority: {next.Priority}", "Task Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Task ID {selectedId} has been completed!", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private int? GetSelectedTaskId()
+        {
+            if (dgvTasks.SelectedRows.Count == 0)
+                return null;
+
+            DataGridViewRow row = dgvTasks.SelectedRows[0];
+            if (row.Cells["TaskId"].Value == null)
+                return null;
+
+            return Convert.ToInt32(row.Cells["TaskId"].Value);
         }
 
         private void btnCalcWorkload_Click(object sender, EventArgs e)
@@ -201,6 +243,19 @@ namespace TaskManagementSystem
                 int subtaskCount = task.SubTasks.Count;
 
                 dgvTasks.Rows.Add(task.Id, level, parentIdDisplay, task.Title, task.Priority, subtaskCount);
+            }
+        }
+
+        private void dgvTasks_SelectionChanged(object sender, EventArgs e)
+        {
+            int? selectedId = GetSelectedTaskId();
+            if (selectedId.HasValue)
+            {
+                txtSearchId.Text = selectedId.Value.ToString();
+            }
+            else
+            {
+                txtSearchId.Clear();
             }
         }
     }

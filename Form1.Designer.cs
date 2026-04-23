@@ -60,6 +60,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.LightSkyBlue;
             panel1.Controls.Add(label1);
             panel1.Location = new Point(-4, 1);
@@ -69,6 +70,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkBlue;
@@ -80,6 +82,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.None;
             groupBox1.Controls.Add(txtParentId);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(numPriority);
@@ -98,6 +101,7 @@
             // 
             // txtParentId
             // 
+            txtParentId.Anchor = AnchorStyles.None;
             txtParentId.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtParentId.ForeColor = Color.DarkBlue;
             txtParentId.Location = new Point(254, 155);
@@ -109,6 +113,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(23, 157);
@@ -119,6 +124,7 @@
             // 
             // numPriority
             // 
+            numPriority.Anchor = AnchorStyles.None;
             numPriority.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             numPriority.ForeColor = Color.DarkBlue;
             numPriority.Location = new Point(254, 112);
@@ -132,6 +138,7 @@
             // 
             // btnAddTask
             // 
+            btnAddTask.Anchor = AnchorStyles.None;
             btnAddTask.BackColor = Color.SkyBlue;
             btnAddTask.FlatAppearance.MouseDownBackColor = Color.SteelBlue;
             btnAddTask.FlatAppearance.MouseOverBackColor = Color.LightCyan;
@@ -147,6 +154,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(23, 114);
@@ -157,6 +165,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(23, 37);
@@ -167,6 +176,7 @@
             // 
             // txtTitle
             // 
+            txtTitle.Anchor = AnchorStyles.None;
             txtTitle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTitle.ForeColor = Color.DarkBlue;
             txtTitle.Location = new Point(23, 65);
@@ -176,6 +186,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.None;
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txtSearchId);
             groupBox2.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -189,6 +200,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(23, 37);
@@ -199,6 +211,7 @@
             // 
             // txtSearchId
             // 
+            txtSearchId.Anchor = AnchorStyles.None;
             txtSearchId.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtSearchId.ForeColor = Color.DarkBlue;
             txtSearchId.Location = new Point(23, 65);
@@ -209,6 +222,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.None;
             groupBox3.Controls.Add(btnCountSubTasks);
             groupBox3.Controls.Add(btnCalcWorkload);
             groupBox3.Controls.Add(btnProcessNext);
@@ -223,6 +237,7 @@
             // 
             // btnCountSubTasks
             // 
+            btnCountSubTasks.Anchor = AnchorStyles.None;
             btnCountSubTasks.BackColor = Color.SkyBlue;
             btnCountSubTasks.FlatAppearance.MouseDownBackColor = Color.SteelBlue;
             btnCountSubTasks.FlatAppearance.MouseOverBackColor = Color.LightCyan;
@@ -238,6 +253,7 @@
             // 
             // btnCalcWorkload
             // 
+            btnCalcWorkload.Anchor = AnchorStyles.None;
             btnCalcWorkload.BackColor = Color.SkyBlue;
             btnCalcWorkload.FlatAppearance.MouseDownBackColor = Color.SteelBlue;
             btnCalcWorkload.FlatAppearance.MouseOverBackColor = Color.LightCyan;
@@ -253,6 +269,7 @@
             // 
             // btnProcessNext
             // 
+            btnProcessNext.Anchor = AnchorStyles.None;
             btnProcessNext.BackColor = Color.SkyBlue;
             btnProcessNext.FlatAppearance.MouseDownBackColor = Color.SteelBlue;
             btnProcessNext.FlatAppearance.MouseOverBackColor = Color.LightCyan;
@@ -268,6 +285,7 @@
             // 
             // groupBox4
             // 
+            groupBox4.Anchor = AnchorStyles.None;
             groupBox4.Controls.Add(dgvTasks);
             groupBox4.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox4.ForeColor = Color.DarkBlue;
@@ -281,7 +299,7 @@
             // dgvTasks
             // 
             dgvTasks.AllowUserToAddRows = false;
-            dgvTasks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTasks.Anchor = AnchorStyles.None;
             dgvTasks.BackgroundColor = Color.SkyBlue;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.LightCyan;
@@ -301,10 +319,13 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvTasks.DefaultCellStyle = dataGridViewCellStyle2;
             dgvTasks.Location = new Point(19, 37);
+            dgvTasks.MultiSelect = false;
             dgvTasks.Name = "dgvTasks";
             dgvTasks.ReadOnly = true;
+            dgvTasks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTasks.Size = new Size(723, 563);
             dgvTasks.TabIndex = 0;
+            dgvTasks.SelectionChanged += dgvTasks_SelectionChanged;
             // 
             // Form1
             // 
